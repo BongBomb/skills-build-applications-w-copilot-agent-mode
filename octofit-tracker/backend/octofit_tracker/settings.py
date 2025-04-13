@@ -1,7 +1,7 @@
 # Add MongoDB database connection
 DATABASES = {
     'default': {
-        'ENGINE': 'djongo',
+        'ENGINE': 'django',
         'NAME': 'octofit_db',
     }
 }

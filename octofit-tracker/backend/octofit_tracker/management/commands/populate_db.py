@@ -6,7 +6,7 @@ class Command(BaseCommand):
 
     def handle(self, *args, **kwargs):
         # Create test users
-        user1 = User.objects.create(email='john.doe@example.com', name='John Doe', age=25)
+        user1 = User.objects.create(email='john.doe@example.com', name='John Doe', age=27)
         user2 = User.objects.create(email='jane.smith@example.com', name='Jane Smith', age=30)
 
         # Create test teams
