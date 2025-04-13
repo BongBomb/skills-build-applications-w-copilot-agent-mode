@@ -6,23 +6,21 @@ DATABASES = {
     }
 }
 
-# Ensure INSTALLED_APPS is defined before appending
-INSTALLED_APPS = INSTALLED_APPS if 'INSTALLED_APPS' in locals() else [
+# Define INSTALLED_APPS unconditionally
+INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-]
-
-INSTALLED_APPS += [
     'octofit_tracker',
     'corsheaders',
 ]
 
-# Ensure MIDDLEWARE is defined before appending
-MIDDLEWARE = MIDDLEWARE if 'MIDDLEWARE' in locals() else [
+# Define MIDDLEWARE unconditionally
+MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -31,8 +29,6 @@ MIDDLEWARE = MIDDLEWARE if 'MIDDLEWARE' in locals() else [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
-
-MIDDLEWARE.insert(0, 'corsheaders.middleware.CorsMiddleware')
 
 CORS_ALLOW_ALL_ORIGINS = True
 CORS_ALLOW_METHODS = [
